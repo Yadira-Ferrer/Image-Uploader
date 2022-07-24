@@ -3,6 +3,10 @@ html,
 body {
     background-color: var(--surface-b);
     font-family: var(--font-family);
+    /* Background */
+    background-image: radial-gradient(#9E9E9E 1px, transparent 1px);
+    background-size: 25px 25px;
+    background-color: #f8f9fa;
 }
 
 .text-layout {
