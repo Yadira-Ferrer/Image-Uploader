@@ -1,0 +1,35 @@
+<p-card
+  header="Upload your image"
+  subheader="File should be .jpeg, .png, ..."
+  styleClass="shadow-5"
+  [style]="{ width: '25rem', 'text-align': 'center' }"
+>
+  <!-- Body Content -->
+  <div class="drag-div">
+    <p-fileUpload
+      name="myfile[]"
+      url="./upload.php"
+      accept="image/*"
+      [maxFileSize]="1000000"
+      [customUpload]="true"
+      [auto]="true"
+      (uploadHandler)="myUploader($event)"
+    >
+      <ng-template pTemplate="content" let-files>
+        <img src="assets/imgs/image.svg" alt="" />
+        <p class="text-mute">Drag & drop your image here</p>
+      </ng-template>
+    </p-fileUpload>
+  </div>
+  <p class="text-mute">Or</p>
+  <p-fileUpload
+    styleClass="p-button-raised p-button-sm"
+    chooseLabel="Choose File"
+    mode="basic"
+    accept="image/*"
+    [maxFileSize]="1000000"
+    [customUpload]="true"
+    [auto]="true"
+    (uploadHandler)="myUploader($event)"
+  ></p-fileUpload>
+</p-card>

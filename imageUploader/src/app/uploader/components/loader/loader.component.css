@@ -1,0 +1,11 @@
+h4 {
+    margin: 0 auto 25px;
+}
+
+::ng-deep .p-card .p-card-body {
+    padding: 1.5rem;
+}
+
+::ng-deep .p-card .p-card-content {
+    padding: 0;
+}
