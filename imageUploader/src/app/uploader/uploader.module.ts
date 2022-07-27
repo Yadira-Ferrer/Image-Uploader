@@ -6,9 +6,10 @@ import { ImageUploaderComponent } from './image-uploader/image-uploader.componen
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { UploaderComponent } from './components/uploader/uploader.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { CardImageComponent } from './components/card-image/card-image.component';
 
 @NgModule({
-  declarations: [ImageUploaderComponent, UploaderComponent, LoaderComponent],
+  declarations: [ImageUploaderComponent, UploaderComponent, LoaderComponent, CardImageComponent],
   imports: [CommonModule, UploaderRoutingModule, PrimeNgModule],
 })
 export class UploaderModule {}
