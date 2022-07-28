@@ -16,7 +16,7 @@
 ::ng-deep .p-fileupload .p-fileupload-content {
     border: none;
     border-radius: 10px;
-    background-color: var(--blue-50);
+    background-color: var(--surface-b);
 }
 
 ::ng-deep .p-card .p-card-subtitle {
@@ -32,8 +32,8 @@
     padding: 1.75rem 0 1rem;
 }
 
-::ng-deep .p-button .p-button-icon-left {
-    display: none !important;
+:host ::ng-deep .p-button .p-button-icon-left {
+    display: none;
 }
 
 ::ng-deep .p-fileupload-content .p-progressbar {

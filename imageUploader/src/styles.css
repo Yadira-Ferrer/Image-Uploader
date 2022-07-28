@@ -1,12 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
-html,
+@import "primeng/resources/primeng.min.css";
+@import "primeflex/primeflex.css";
+@import "primeicons/primeicons.css";
+
+
 body {
-    background-color: var(--surface-b);
     font-family: var(--font-family);
-    /* Background */
+    background-color: var(--surface-ground);
+    color: var(--text-color);
+    /* Background-Pattern */
     background-image: radial-gradient(#9E9E9E 1px, transparent 1px);
     background-size: 25px 25px;
-    background-color: #f8f9fa;
 }
 
 .text-layout {

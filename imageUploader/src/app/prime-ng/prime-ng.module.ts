@@ -5,6 +5,7 @@ import { CardModule } from 'primeng/card';
 import { DragDropModule } from 'primeng/dragdrop';
 import { FileUploadModule } from 'primeng/fileupload';
 import { InputTextModule } from 'primeng/inputtext';
+import { InputSwitchModule } from 'primeng/inputswitch';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { ToastModule } from 'primeng/toast';
 
@@ -16,6 +17,7 @@ import { ToastModule } from 'primeng/toast';
     DragDropModule,
     FileUploadModule,
     InputTextModule,
+    InputSwitchModule,
     ProgressBarModule,
     ToastModule,
   ],
