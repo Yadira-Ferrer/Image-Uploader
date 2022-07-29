@@ -7,7 +7,7 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { ProgressBarModule } from 'primeng/progressbar';
-import { ToastModule } from 'primeng/toast';
+import { TooltipModule } from 'primeng/tooltip';
 
 @NgModule({
   declarations: [],
@@ -19,7 +19,7 @@ import { ToastModule } from 'primeng/toast';
     InputTextModule,
     InputSwitchModule,
     ProgressBarModule,
-    ToastModule,
+    TooltipModule,
   ],
 })
 export class PrimeNgModule {}

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
+import { Tooltip } from 'primeng/tooltip';
 
 @Component({
   selector: 'app-card-image',
@@ -6,7 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./card-image.component.css'],
 })
 export class CardImageComponent {
+  @ViewChild(Tooltip) tooltip!: Tooltip;
+  @Input() image: string = '';
+
   constructor() {}
 
-  copyLink() {}
+  copyLink() {
+    this.tooltip.activate();
+  }
 }

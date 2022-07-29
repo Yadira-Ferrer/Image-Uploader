@@ -1,4 +1,3 @@
-<p-toast position="top-center"></p-toast>
 <p-card
   styleClass="shadow-5"
   [style]="{ width: '25rem', 'text-align': 'center' }"
@@ -6,10 +5,10 @@
   <!-- Header -->
   <ng-template pTemplate="header">
     <i class="pi pi-check-circle"></i>
-    <p>Uploaded Successfully!</p>
+    <p class="title">Uploaded Successfully!</p>
   </ng-template>
   <!-- Content -->
-  <img src="assets/imgs/desk.jpg" alt="" srcset="" />
+  <img [src]="image" alt="" srcset="" />
   <!-- Footer -->
   <ng-template pTemplate="footer">
     <div class="p-inputgroup">
@@ -19,7 +18,15 @@
         placeholder="https://images.mydomain.com/photo-hash1fa56d"
         p-disabled
       />
-      <button type="button" pButton pRipple (click)="copyLink()">
+      <button
+        type="button"
+        pButton
+        (click)="copyLink()"
+        pTooltip="Copied!"
+        tooltipPosition="top"
+        tooltipEvent="focus"
+        [life]="1500"
+      >
         Copy Link
       </button>
     </div>

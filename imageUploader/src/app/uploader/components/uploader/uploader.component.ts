@@ -1,17 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-uploader',
   templateUrl: './uploader.component.html',
   styleUrls: ['./uploader.component.css'],
 })
-export class UploaderComponent implements OnInit {
+export class UploaderComponent {
+  @Output() sendFile: EventEmitter<File> = new EventEmitter();
+
   constructor() {}
 
-  ngOnInit(): void {}
-
   myUploader(event: any) {
-    console.log('File Basic Upload');
-    console.log(event);
+    const file = event.files[0];
+
+    this.sendFile.emit(file);
   }
 }

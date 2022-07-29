@@ -2,3 +2,16 @@
     text-align: right; 
     margin: 1rem 0.75rem 0;
 }
+
+.footer {
+    text-align: center;
+    font-size: small;
+}
+
+.footer > p {
+    margin: 0;
+}
+
+.footer > p > span {
+    font-weight: bold;
+}

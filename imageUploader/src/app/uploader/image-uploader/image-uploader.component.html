@@ -1,7 +1,10 @@
 <div class="container flex align-content-center justify-content-center">
   <div class="flex align-items-center justify-content-center">
-    <!-- <app-uploader></app-uploader> -->
-    <!-- <app-loader></app-loader> -->
-    <app-card-image></app-card-image>
+    <app-uploader
+      *ngIf="showUploader"
+      (sendFile)="uploadFile($event)"
+    ></app-uploader>
+    <app-loader *ngIf="showLoading"></app-loader>
+    <app-card-image *ngIf="showImage" [image]="imageURL"></app-card-image>
   </div>
 </div>

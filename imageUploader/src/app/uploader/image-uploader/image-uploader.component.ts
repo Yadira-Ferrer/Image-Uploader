@@ -1,30 +1,34 @@
 import { Component } from '@angular/core';
 
-import { MessageService } from 'primeng/api';
-
 @Component({
   selector: 'app-image-uploader',
   templateUrl: './image-uploader.component.html',
   styleUrls: ['./image-uploader.component.css'],
-  providers: [MessageService],
 })
 export class ImageUploaderComponent {
-  image: any;
-  constructor(private messageService: MessageService) {}
+  imageURL = 'assets/imgs/desk.jpg';
+  showUploader = true;
+  showLoading = false;
+  showImage = false;
 
-  myUploader(event: any) {
-    console.log('File Basic Upload');
-    console.log(event);
-  }
+  constructor() {}
 
-  showToast() {
-    console.log('TOAST');
+  uploadFile(file: any) {
+    const reader = new FileReader();
+    let imgb64: any;
 
-    this.messageService.add({
-      key: 'msgToast',
-      severity: 'info',
-      summary: 'Image copied',
-      detail: '...',
-    });
+    this.showUploader = false;
+    this.showLoading = true;
+
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      imgb64 = reader.result;
+    };
+
+    setInterval(() => {
+      this.showLoading = false;
+      this.showImage = true;
+      this.imageURL = file.objectURL;
+    }, 1500);
   }
 }
