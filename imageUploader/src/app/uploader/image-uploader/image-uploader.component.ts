@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+import { ThemeService } from 'src/app/services/theme.service';
+
+interface Theme {
+  name: string;
+  icon: string;
+}
 
 @Component({
   selector: 'app-image-uploader',
@@ -6,12 +12,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./image-uploader.component.css'],
 })
 export class ImageUploaderComponent {
+  currentTheme: Theme = { name: 'lara-light-blue', icon: 'pi pi-moon' };
   imageURL = 'assets/imgs/desk.jpg';
   showUploader = true;
   showLoading = false;
-  showImage = false;
 
-  constructor() {}
+  constructor(private themeService: ThemeService) {}
 
   uploadFile(file: any) {
     const reader = new FileReader();
@@ -27,8 +33,21 @@ export class ImageUploaderComponent {
 
     setInterval(() => {
       this.showLoading = false;
-      this.showImage = true;
       this.imageURL = file.objectURL;
     }, 1500);
+  }
+
+  changeTheme() {
+    const { name } = this.currentTheme;
+    this.currentTheme =
+      name === 'lara-light-blue'
+        ? { name: 'lara-dark-blue', icon: 'pi pi-sun' }
+        : { name: 'lara-light-blue', icon: 'pi pi-moon' };
+    this.themeService.switchTheme(this.currentTheme.name);
+  }
+
+  backToUploader() {
+    this.showLoading = false;
+    this.showUploader = true;
   }
 }
