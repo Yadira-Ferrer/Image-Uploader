@@ -1,6 +1,7 @@
 .footer {
     text-align: center;
     font-size: small;
+    margin-top: 0.5rem;
 }
 
 .footer > p {
