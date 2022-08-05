@@ -13,7 +13,7 @@ interface Theme {
 })
 export class ImageUploaderComponent {
   currentTheme: Theme = { name: 'lara-light-blue', icon: 'pi pi-moon' };
-  image = 'assets/imgs/desk.jpg';
+  image = '';
   showUploader = true;
   showLoading = false;
 
@@ -22,6 +22,7 @@ export class ImageUploaderComponent {
   uploadFile(file: any) {
     const reader = new FileReader();
     let imgb64: any;
+    let ext = file.name.split('.')[1];
 
     this.showUploader = false;
     this.showLoading = true;
@@ -49,6 +50,6 @@ export class ImageUploaderComponent {
   backToUploader() {
     this.showLoading = false;
     this.showUploader = true;
-    this.image = 'assets/imgs/desk.jpg';
+    this.image = '';
   }
 }
