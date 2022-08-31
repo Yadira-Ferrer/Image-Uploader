@@ -14,5 +14,9 @@ export class CardImageComponent {
 
   copyLink() {
     this.tooltip.activate();
+    navigator.clipboard
+      .writeText(this.image)
+      .then()
+      .catch((e) => console.error(e));
   }
 }

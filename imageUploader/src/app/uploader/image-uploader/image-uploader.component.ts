@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ImageService } from 'src/app/services/image.service';
 import { ThemeService } from 'src/app/services/theme.service';
 
 interface Theme {
@@ -17,9 +18,12 @@ export class ImageUploaderComponent {
   showUploader = true;
   showLoading = false;
 
-  constructor(private themeService: ThemeService) {}
+  constructor(
+    private themeService: ThemeService,
+    private imageService: ImageService
+  ) {}
 
-  uploadFile(file: any) {
+  async uploadFile(file: any) {
     const reader = new FileReader();
     let imgb64: any;
     let ext = file.name.split('.')[1];
@@ -32,9 +36,10 @@ export class ImageUploaderComponent {
       imgb64 = reader.result;
     };
 
-    setTimeout(() => {
-      this.showLoading = false;
-      this.image = imgb64;
+    //await this.upload(ext, imgb64);
+    //this.showLoading = false;
+    setTimeout(async () => {
+      await this.upload(ext, imgb64);
     }, 1500);
   }
 
@@ -51,5 +56,15 @@ export class ImageUploaderComponent {
     this.showLoading = false;
     this.showUploader = true;
     this.image = '';
+  }
+
+  upload(ext: string, image: string) {
+    this.imageService.uploadImage(ext, image).subscribe((resp) => {
+      //console.log(resp);
+      if (resp.ok) {
+        this.image = resp.url!;
+        this.showLoading = false;
+      }
+    });
   }
 }

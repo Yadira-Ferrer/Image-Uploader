@@ -12,12 +12,7 @@
   <!-- Footer -->
   <ng-template pTemplate="footer">
     <div class="p-inputgroup">
-      <input
-        type="text"
-        pInputText
-        placeholder="https://images.mydomain.com/photo-hash1fa56d"
-        p-disabled
-      />
+      <input type="text" pInputText [placeholder]="image" p-disabled />
       <button
         type="button"
         pButton
