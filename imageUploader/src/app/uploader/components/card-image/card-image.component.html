@@ -1,7 +1,4 @@
-<p-card
-  styleClass="shadow-5"
-  [style]="{ width: '25rem', 'text-align': 'center' }"
->
+<p-card styleClass="shadow-5" [style]="{ 'text-align': 'center' }">
   <!-- Header -->
   <ng-template pTemplate="header">
     <i class="pi pi-check-circle"></i>
@@ -12,7 +9,7 @@
   <!-- Footer -->
   <ng-template pTemplate="footer">
     <div class="p-inputgroup">
-      <input type="text" pInputText [placeholder]="image" p-disabled />
+      <input type="text" pInputText [value]="image" readonly />
       <button
         type="button"
         pButton
