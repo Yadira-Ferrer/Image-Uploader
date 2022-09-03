@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+
 import { ImageService } from 'src/app/services/image.service';
+import { MessageService } from 'primeng/api';
 import { ThemeService } from 'src/app/services/theme.service';
 
 interface Theme {
@@ -11,6 +13,7 @@ interface Theme {
   selector: 'app-image-uploader',
   templateUrl: './image-uploader.component.html',
   styleUrls: ['./image-uploader.component.css'],
+  providers: [MessageService],
 })
 export class ImageUploaderComponent {
   currentTheme: Theme = { name: 'lara-light-blue', icon: 'pi pi-moon' };
@@ -20,10 +23,11 @@ export class ImageUploaderComponent {
 
   constructor(
     private themeService: ThemeService,
+    private messageService: MessageService,
     private imageService: ImageService
   ) {}
 
-  async uploadFile(file: any) {
+  uploadFile(file: any) {
     const reader = new FileReader();
     let imgb64: any;
     let ext = file.name.split('.')[1];
@@ -36,8 +40,6 @@ export class ImageUploaderComponent {
       imgb64 = reader.result;
     };
 
-    //await this.upload(ext, imgb64);
-    //this.showLoading = false;
     setTimeout(async () => {
       await this.upload(ext, imgb64);
     }, 1500);
@@ -60,10 +62,16 @@ export class ImageUploaderComponent {
 
   upload(ext: string, image: string) {
     this.imageService.uploadImage(ext, image).subscribe((resp) => {
-      //console.log(resp);
       if (resp.ok) {
         this.image = resp.url!;
         this.showLoading = false;
+      } else {
+        this.backToUploader();
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Oh no!',
+          detail: 'Something went wrong while uploading image.',
+        });
       }
     });
   }

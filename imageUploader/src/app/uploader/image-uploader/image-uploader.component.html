@@ -16,8 +16,10 @@
     (click)="changeTheme()"
   ></button>
 </div>
+
 <div class="container">
   <div class="" id="inner-box">
+    <p-messages></p-messages>
     <app-uploader
       *ngIf="showUploader"
       (sendFile)="uploadFile($event)"
