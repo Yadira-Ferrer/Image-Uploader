@@ -4,8 +4,10 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:9002/api',
+  baseUrl: 'https://image-uploader-app.onrender.com/api',
 };
+
+/* baseUrl: http://localhost:9002/api */
 
 /*
  * For easier debugging in development mode, you can import the following file

@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: '', //Colocar url de heroku
+  baseUrl: 'https://image-uploader-app.onrender.com/api',
 };

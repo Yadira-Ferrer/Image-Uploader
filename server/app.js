@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const path = require('path');
 
 require('dotenv').config();
 
@@ -9,6 +8,7 @@ require('dotenv').config();
 const app = express();
 
 app.use(cors());
+app.use(express.static('public'));
 app.use(express.json({ limit: '5mb' }));
 app.use('/api/image', require('./routes/image'));
 
